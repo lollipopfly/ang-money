@@ -63,6 +63,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src='js/app.js'></script>
+	<script src='js/factories/currenciesFactory.js'></script>
+	<script src='js/controllers/currenciesCtrl.js'></script>
 
 	<!-- Modal -->
 	<div>
@@ -73,15 +75,9 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title" id="myModalLabel">Добавить валюту</h4>
 					</div>
-					<div class="modal-body">
-						<select class="selectpicker" ref="currencySelect">
-							{
-								currencies.map(function(currency, key) {
-									// Переводим массив в строку
-									var currencyData = JSON.stringify(currency);
-									return <option value={currencyData} key={key}>{currency.name}</option>;
-								})
-							}
+					<div class="modal-body" ng-controller="currenciesCtrl as currenciesCtrl">
+						<select class="selectpicker">
+							<option value="" ng-repeat="currency in currenciesCtrl.currencies">{{ currency.name }}</option>
 						</select>
 					</div>
 					<div class="modal-footer">
