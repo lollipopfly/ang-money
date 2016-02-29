@@ -1,0 +1,43 @@
+.header__title {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
+.header-contrib {
+	margin-top: 31px;
+}
+
+.header-currency-container {
+	margin-top: 31px;
+}
+
+/* FORM */
+td {
+	padding: 5px;
+}
+
+.saving__icon {
+	display: inline-block;
+	margin-right: 5px;
+	color: #fff;
+	padding: 2px;
+	font-size: 12px;
+	border-radius: 3px;
+}
+
+.saving__icon.fa-rub {
+	background: #06C;
+}
+
+.saving__icon.fa-usd {
+	background: #009832;
+}
+
+.saving__icon.fa-eur {
+	background: #FF9800;
+}
+
+.saving__input {
+	width: 110px;
+}

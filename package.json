@@ -1,0 +1,22 @@
+{
+  "name": "ang-money",
+  "version": "0.0.1",
+  "description": "Angular money",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lollipopfly/ang-money.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lollipopfly/ang-money/issues"
+  },
+  "homepage": "https://github.com/lollipopfly/ang-money#readme",
+  "devDependencies": {
+    "lodash": "^4.5.1"
+  }
+}
