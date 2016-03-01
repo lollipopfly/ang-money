@@ -28,7 +28,7 @@
 		</header>
 		<!-- begin main row  -->
 		<div class="main row">
-			<div class="saving col-md-4">
+			<div class="saving col-md-4" ng-controller="moneyCtrl as moneyCtrl">
 					<table class="saving-table">
 						<tbody>
 							<tr>
@@ -37,9 +37,9 @@
 								<td>Ставки вкладов</td>
 							</tr>
 
-							<tr key={key}>
+							<tr ng-repeat="money in moneyCtrl.moneyStorage">
 								<td>
-									<i class={"fa saving__icon " + currency.class}></i>
+									<i class="fa saving__icon {{money.class}}"></i>
 									<input type="text" class="saving__input"/>
 								</td>
 								<td>
@@ -65,7 +65,8 @@
 	<script src='js/app.js'></script>
 	<script src='js/factories/currenciesFactory.js'></script>
 	<script src='js/controllers/currenciesCtrl.js'></script>
-	<!-- <script src='js/controllers/modalCtrl.js'></script> -->
+	<script src='js/factories/moneyFactory.js'></script>
+	<script src='js/controllers/moneyCtrl.js'></script>
 
 	<!-- Modal -->
 	<div>

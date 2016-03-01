@@ -26,5 +26,24 @@ angular.module('app').factory('currenciesFactory', function(){
 		return currencies;
 	};
 
+	service.addCurrency = function(storage, selectCurrency) {
+		storage.push(selectCurrency);
+		storage = JSON.stringify(storage);
+		localStorage.setItem('currencies', storage); // set currencies string to localstorage
+		return true;
+	};
+
+	service.getStorage = function() {
+		var storage;
+		if(typeof(Storage) !== "undefined") {
+			storage = localStorage.getItem("currencies");
+			storage = (storage) ? JSON.parse(storage) : [];
+		} else {
+			storage = false;
+		}
+
+		return storage;
+	};
+
 	return service;
 });

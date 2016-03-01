@@ -21,11 +21,9 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 				}
 
 				// Add currency
-				storage.push(selectCurrency);
-				storage = JSON.stringify(storage);
-				localStorage.setItem('currencies', storage); // set currencies string to localstorage
-				storage = JSON.parse(storage);
-				$('#myModal').modal('hide'); // close modal
+				if(currenciesFactory.addCurrency(storage, selectCurrency)) {
+					$('#myModal').modal('hide'); // close modal
+				}
 			}
 
 		} else {
@@ -33,15 +31,9 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 		}
 	};
 
+	/* Get from storage */
 	this.getStorageCurrencies = function() {
-		var storage;
-		if(typeof(Storage) !== "undefined") {
-			storage = localStorage.getItem("currencies");
-			storage = (storage) ? JSON.parse(storage) : [];
-		} else {
-			storage = false;
-		}
-
+		var storage = currenciesFactory.getStorage();
 		return storage;
 	};
 }]);
