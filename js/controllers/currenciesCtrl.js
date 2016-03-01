@@ -5,9 +5,12 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 	this.addCurrency = function($event) {
 		$event.preventDefault();
 		if(typeof(Storage) !== "undefined") {
-					var storage = this.getStorageCurrencies(); // get currencies string from localstorage
+			var storage = this.getStorageCurrencies(); // get currencies string from localstorage
 					// var currencySelectObj = JSON.parse(this.refs.currencySelect.value); // selected currency & make obj
-					console.log($scope.selectCurrency);
+			// Если не пустая строка
+			if($scope.selectCurrency) {
+				console.log($scope.selectCurrency);
+			}
 					// if(storage) {
 					// 	// Chek the condition if selected currency is entry in localstorage
 					// 	for (var i = 0; i < storage.length; i++) {
@@ -26,7 +29,7 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 					// this.setState({storage: storage});
 					// storage = JSON.stringify(storage);
 					// localStorage.setItem('currencies', storage); // set currencies string to localstorage
-					// $('#myModal').modal('hide'); // close modal
+					$('#myModal').modal('hide'); // close modal
 				} else {
 					console.log('Sorry LocalStorage not working in this browser!');
 				}
