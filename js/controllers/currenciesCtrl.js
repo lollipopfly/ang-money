@@ -1,5 +1,6 @@
-angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory', function($scope, currenciesFactory){
-	this.currencies = currenciesFactory.getCurrencies();
+angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', function($scope, mainFactory){
+	$scope.currencies = mainFactory.getCurrencies();
+	console.log($scope.currencies);
 
 	/* + */
 	this.addCurrency = function($event) {
@@ -21,8 +22,9 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 				}
 
 				// Add currency
-				if(currenciesFactory.addCurrency(storage, selectCurrency)) {
+				if(mainFactory.addCurrency(storage, selectCurrency)) {
 					$('#myModal').modal('hide'); // close modal
+					$scope.moneyStorage = mainFactory.getStorage();
 				}
 			}
 
@@ -33,7 +35,7 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'currenciesFactory
 
 	/* Get from storage */
 	this.getStorageCurrencies = function() {
-		var storage = currenciesFactory.getStorage();
+		var storage = mainFactory.getStorage();
 		return storage;
 	};
 }]);

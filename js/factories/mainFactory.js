@@ -1,4 +1,4 @@
-angular.module('app').factory('currenciesFactory', function(){
+angular.module('app').factory('mainFactory', function(){
 	var service = {};
 
 	var currencies = [
