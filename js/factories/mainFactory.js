@@ -1,4 +1,4 @@
-angular.module('app').factory('mainFactory', function(){
+angular.module('app').factory('mainFactory', function($rootScope){
 	var service = {};
 
 	var currencies = [
@@ -22,12 +22,26 @@ angular.module('app').factory('mainFactory', function(){
 		}
 	];
 
+	// Share data between controllers
+	service.moneyStorage = [];
+
+	service.prepForBroadcast = function(obj) {
+		this.moneyStorage = obj;
+		this.broadcastItem();
+	};
+
+	service.broadcastItem = function() {
+		$rootScope.$broadcast('handleBroadcast');
+	}
+
 	service.getCurrencies = function() {
 		return currencies;
 	};
 
 	service.addCurrency = function(storage, selectCurrency) {
 		storage.push(selectCurrency);
+		// update money list
+		service.prepForBroadcast(storage);
 		storage = JSON.stringify(storage);
 		localStorage.setItem('currencies', storage); // set currencies string to localstorage
 		return true;

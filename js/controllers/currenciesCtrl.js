@@ -1,6 +1,10 @@
 angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', function($scope, mainFactory){
-	$scope.currencies = mainFactory.getCurrencies();
-	console.log($scope.currencies);
+	$scope.currencies = mainFactory.getCurrencies(); // currencies list from factory
+
+	$scope.$on('handleBroadcast', function() {
+		$scope.moneyStorage = mainFactory.moneyStorage;
+	});
+
 
 	/* + */
 	this.addCurrency = function($event) {
@@ -24,7 +28,6 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', fun
 				// Add currency
 				if(mainFactory.addCurrency(storage, selectCurrency)) {
 					$('#myModal').modal('hide'); // close modal
-					$scope.moneyStorage = mainFactory.getStorage();
 				}
 			}
 
