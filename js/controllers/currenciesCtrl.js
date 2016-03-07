@@ -1,10 +1,9 @@
 angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', function($scope, mainFactory){
 	$scope.currencies = mainFactory.getCurrencies(); // currencies list from factory
 
-	$scope.$on('handleBroadcast', function() {
+	$scope.$on('addCurrency', function() {
 		$scope.moneyStorage = mainFactory.moneyStorage;
 	});
-
 
 	/* + */
 	this.addCurrency = function($event) {
@@ -30,7 +29,6 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', fun
 					$('#myModal').modal('hide'); // close modal
 				}
 			}
-
 		} else {
 			console.log('Sorry LocalStorage not working in this browser!');
 		}

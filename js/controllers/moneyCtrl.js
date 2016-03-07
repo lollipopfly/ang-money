@@ -1,6 +1,8 @@
 angular.module('app').controller('moneyCtrl', ['$scope', 'mainFactory',  function($scope, mainFactory) {
 	$scope.moneyStorage = mainFactory.getStorage();
-	$scope.$on('handleBroadcast', function() {
+
+	// Event add new currency
+	$scope.$on('addCurrency', function() {
 		$scope.moneyStorage = mainFactory.moneyStorage;
 	});
 }]);

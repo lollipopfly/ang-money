@@ -31,8 +31,8 @@ angular.module('app').factory('mainFactory', function($rootScope){
 	};
 
 	service.broadcastItem = function() {
-		$rootScope.$broadcast('handleBroadcast');
-	}
+		$rootScope.$broadcast('addCurrency');
+	};
 
 	service.getCurrencies = function() {
 		return currencies;
