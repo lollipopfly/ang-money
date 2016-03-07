@@ -32,5 +32,7 @@ angular.module('app').factory('moneyListFactory', function($rootScope, $http){
 		return promise;
 	};
 
+	// service.updateCurrency =
+
 	return service;
 });
