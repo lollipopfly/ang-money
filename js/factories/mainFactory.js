@@ -4,21 +4,24 @@ angular.module('app').factory('mainFactory', function($rootScope){
 	var currencies = [
 		{
 			id: 1,
-			code: "rub",
+			code: "RUB",
 			name: 'Рубль',
-			class: 'fa-rub'
+			class: 'fa-rub',
+			currency: ''
 		},
 		{
 			id: 3,
-			code: 'dollar',
+			code: 'USD',
 			name: 'Доллар',
-			class: 'fa-usd'
+			class: 'fa-usd',
+			currency: ''
 		},
 		{
 			id: 3,
-			code: 'euro',
+			code: 'EUR',
 			name: 'Евро',
-			class: 'fa-eur'
+			class: 'fa-eur',
+			currency: ''
 		}
 	];
 

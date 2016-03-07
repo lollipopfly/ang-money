@@ -28,7 +28,7 @@
 		</header>
 		<!-- begin main row  -->
 		<div class="main row">
-			<div class="saving col-md-5" ng-controller="moneyCtrl">
+			<div class="saving col-md-5" ng-controller="moneyListCtrl">
 					<table class="saving-table">
 						<tbody>
 							<tr>
@@ -37,7 +37,7 @@
 								<td>Ставки вкладов</td>
 							</tr>
 
-							<tr ng-repeat="money in moneyStorage">
+							<tr ng-repeat="money in moneyList">
 								<td>
 									<i class="fa saving__icon {{money.class}}"></i>
 									<input type="text" class="saving__input"/>
@@ -65,7 +65,8 @@
 	<script src='js/app.js'></script>
 	<script src='js/factories/mainFactory.js'></script>
 	<script src='js/controllers/currenciesCtrl.js'></script>
-	<script src='js/controllers/moneyCtrl.js'></script>
+	<script src='js/factories/moneyListFactory.js'></script>
+	<script src='js/controllers/moneyListCtrl.js'></script>
 
 	<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">

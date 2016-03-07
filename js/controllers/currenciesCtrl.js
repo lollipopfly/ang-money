@@ -1,4 +1,4 @@
-angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', function($scope, mainFactory){
+angular.module('app').controller('currenciesCtrl', function($scope, mainFactory){
 	$scope.currencies = mainFactory.getCurrencies(); // currencies list from factory
 
 	$scope.$on('addCurrency', function() {
@@ -39,4 +39,4 @@ angular.module('app').controller('currenciesCtrl', ['$scope', 'mainFactory', fun
 		var storage = mainFactory.getStorage();
 		return storage;
 	};
-}]);
+});
