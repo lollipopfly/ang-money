@@ -42,3 +42,7 @@ td {
 .saving__input {
 	width: 91px;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none;
+}
