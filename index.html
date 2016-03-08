@@ -17,12 +17,13 @@
 					<label for="contrib-trigger">С вкладами</label>
 				</div>
 			</div>
-			<div class="col-md-6 text-right header-currency-container">
+			<div class="col-md-6 text-right header-currency-container" ng-controller="mainCurrencyCtrl">
 				<span>Моя валюта</span>
-				<select name="header__currency" id="header__currency">
-					<option value="rub">руб</option>
-					<option value="dollar">$</option>
-					<option value="eur">евро</option>
+				<select name="header__currency" id="header__currency"
+						ng-model="myCurrency"
+						ng-change="changeCurrency()">
+						<option value="">Выбрать текущую валюту</option>
+						<option ng-repeat="currency in enableCurrenciesList" value="{{currency.code}}">{{currency.code}}</option>
 				</select>
 			</div>
 		</header>
@@ -65,6 +66,8 @@
 	<script src='js/controllers/currenciesCtrl.js'></script>
 	<script src='js/factories/moneyListFactory.js'></script>
 	<script src='js/controllers/moneyListCtrl.js'></script>
+	<script src='js/controllers/mainCurrencyCtrl.js'></script>
+	<script src='js/factories/mainCurrencyFactory.js'></script>
 
 	<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">

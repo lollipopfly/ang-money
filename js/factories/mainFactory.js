@@ -7,21 +7,24 @@ angular.module('app').factory('mainFactory', function($rootScope){
 			code: "RUB",
 			name: 'Рубль',
 			class: 'fa-rub',
-			currency: ''
+			active: false,
+			currency: '',
 		},
 		{
 			id: 3,
 			code: 'USD',
 			name: 'Доллар',
 			class: 'fa-usd',
-			currency: ''
+			active: false,
+			currency: '',
 		},
 		{
 			id: 3,
 			code: 'EUR',
 			name: 'Евро',
 			class: 'fa-eur',
-			currency: ''
+			active: false,
+			currency: '',
 		}
 	];
 
