@@ -13,13 +13,11 @@ angular.module('app').controller('moneyListCtrl',  function($scope, mainFactory,
 		var newArr = $scope.moneyList.map(function(item) {
 			onlineCurrenciesKeys.forEach(function(keyItem) {
 				if(keyItem === item.code) {
-					item.currency = onlineCurrencies[keyItem];
+					item.currency = +(1/onlineCurrencies[keyItem]).toFixed(2);
 				}
 			});
 			return item;
 		});
-
-		console.log(newArr);
 	});
 
 	// Event add new currency
