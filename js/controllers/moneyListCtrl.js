@@ -1,4 +1,4 @@
-angular.module('app').controller('moneyListCtrl',  function($scope, mainFactory, moneyListFactory) {
+angular.module('app').controller('moneyListCtrl', function($scope, mainFactory, moneyListFactory) {
 	var currenciesObj = mainFactory.getStorage(),
 		codeString = moneyListFactory.getCodeString(currenciesObj);
 
@@ -7,17 +7,11 @@ angular.module('app').controller('moneyListCtrl',  function($scope, mainFactory,
 
 	// set online currency
 	moneyListFactory.getOnlineCurrencies(codeString).then(function(data) {
-		var onlineCurrencies = data.rates;
-		onlineCurrenciesKeys = _.keys(onlineCurrencies);
+		var moneyList = $scope.moneyList,
+			onlineCurrencies = data.rates;
 
-		var newArr = $scope.moneyList.map(function(item) {
-			onlineCurrenciesKeys.forEach(function(keyItem) {
-				if(keyItem === item.code) {
-					item.currency = +(1/onlineCurrencies[keyItem]).toFixed(2);
-				}
-			});
-			return item;
-		});
+		// update value of currencies from api
+		$scope.moneyList = moneyListFactory.updateCurrencies(moneyList, onlineCurrencies);
 	});
 
 	// Event add new currency

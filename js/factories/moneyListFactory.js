@@ -32,7 +32,21 @@ angular.module('app').factory('moneyListFactory', function($rootScope, $http){
 		return promise;
 	};
 
-	// service.updateCurrency =
+	service.updateCurrencies = function(moneyList, onlineCurrencies) {
+		// Save keys(codes) of saved currencies
+		onlineCurrenciesKeys = _.keys(onlineCurrencies);
+
+		moneyList.map(function(item) {
+			onlineCurrenciesKeys.forEach(function(keyItem) {
+				if(keyItem === item.code) {
+					item.currency = +(1/onlineCurrencies[keyItem]).toFixed(2);
+				}
+			});
+			return item;
+		});
+
+		return moneyList;
+	}
 
 	return service;
 });
