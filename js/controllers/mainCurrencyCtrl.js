@@ -1,12 +1,10 @@
 angular.module('app').controller('mainCurrencyCtrl', function($scope, mainFactory, mainCurrencyFactory) {
 	$scope.enableCurrenciesList = mainFactory.getStorage();
+	$scope.mainCurrency = mainCurrencyFactory.getMainCurrency();
 
-	$scope.changeCurrency = function() {
+	// Change select main currency
+	$scope.changeMainCurrency = function() {
 		// update storage
-		mainCurrencyFactory.setMainCurrency($scope.myCurrency);
+		mainCurrencyFactory.setMainCurrency($scope.mainCurrency);
 	};
-
-	// $scope.$watch('currenciesList', function (oldValue, newValue) {
- //    	// console.log(newValue);
-	// });
 });
